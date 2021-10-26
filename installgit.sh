@@ -7,5 +7,6 @@ if [ ! -d "/var/www/$domain" ]
 then
     eval `ssh-agent -s`
     $(ssh-add /home/auth; git clone "$giturl" "/var/www/$domain")
+    eval "$(ssh-agent -k)"
     
 fi
